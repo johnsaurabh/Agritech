@@ -1,0 +1,280 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AgroTech</title>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <style>
+      .appbar{
+        background: #373B44;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+      }
+    </style>
+    <div  id="app">
+      <div class="ig"> </div>
+        <v-app>
+ 
+        
+        <nav>
+            <v-navigation-drawer
+            v-model="drawer"
+            fixed
+            temporary
+            
+            
+            >
+            <v-list
+            nav
+
+            style="margin-top: 10%;"
+            dense
+            >
+            <v-list-item-group
+            active-class="deep-purple--text text--accent-4"
+            >
+            <v-list-item @click='home' >
+            <v-list-item-title style="font-size: 18px;">
+                    Home
+            </v-list-item-title>
+            </v-list-item>
+            <v-list-item @click='guide' >
+            <v-list-item-title style="font-size: 18px;">
+                    Guide
+            </v-list-item-title>
+            </v-list-item>
+            
+            <v-list-item @click='loan'>
+            <v-list-item-title style="font-size: 18px;">Loan</v-list-item-title>
+            </v-list-item>
+            
+            <v-list-item  @click='schemes'>
+            <v-list-item-title style="font-size: 18px;">Schemes</v-list-item-title>
+            </v-list-item>
+            
+            <v-list-item  @click='retailers'>
+            <v-list-item-title style="font-size: 18px;">Merchandisers</v-list-item-title>
+            </v-list-item>
+            </v-list-item-group>
+            </v-list>
+            </v-navigation-drawer>
+        <v-app-bar class="appbar" app>
+            <v-app-bar-nav-icon style="color: bisque;" @click='drawer=!drawer'></v-app-bar-nav-icon>
+            <v-toolbar-title style="font-size: 20px;color:white;">AgroTech</v-toolbar-title>
+            {% if user is not None and user.email != NULL %}
+
+
+                <v-btn style="margin-left: 70%;" icon>
+                    <i style="color: bisque;" class="material-icons">
+                        account_circle
+                        </i>
+                    <v-btn style="color: bisque;" text >{{user.username}}</v-btn>
+                    <v-btn style="color: bisque;" text @click="logout">logout</v-btn>
+
+                  </v-btn>
+                  <!-- <v-btn  style="margin-left: 50%;" icon>
+                    <v-btn @click="logout">logout</v-btn>
+                  </v-btn> -->
+                  {% endif %}
+
+                  {% if user.email is NULL %}
+
+                <v-btn  style="margin-left: 70%;" icon>
+                    <v-btn @click="login">Login</v-btn>
+                  </v-btn>
+                  <v-btn  style="margin-left: 50px;" icon>
+                    <v-btn @click="signup" >SignUp</v-btn @click="signup">
+                  </v-btn>
+                  {% endif %}
+
+
+
+        </v-app-bar>
+        
+       
+
+   
+</nav>
+{%block content%}
+
+{%endblock%}
+
+</v-app>
+</div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+</body>
+</html>
+<script>
+      var d = "{{post}}";
+  
+var app = new Vue({
+  delimiters: ['[[', ']]'],
+  el: '#app',
+  vuetify: new Vuetify(),
+  data: {
+    drawer:null,
+    showPost:false,
+    color:'#0000ff',
+    c2:'#000000',
+    c3:'#000000',
+    c4:'#000000',
+    schemess:false,
+    data:"",
+    poster:null,
+    ss:true,
+    selected:'',
+    loanss:false,
+    iri:false,
+    isuser:false,
+    show1: false,
+      show2: true,
+        show3: false,
+        show4: false,
+        password: '',
+        rules: {
+          required: value => !!value || 'Required.',
+          emailMatch: () => ('The email and password you entered don\'t match'),
+        },
+
+  },
+  created(){
+    
+  },
+  methods:{
+    
+      logout(){
+        window.location.href = '/logout';
+
+
+      },
+      applyLoan(){
+        window.location.href = '/applyLoan';
+
+      },
+      soil(){
+        this.schemess=false,
+        this.loanss=false,
+        this.iri=false,
+        this.ss=true,
+
+        this.color="#0000ff";
+        this.c2="#000000";
+        this.c3="#000000";
+        this.c4="#000000";
+
+      },
+      irri(){
+        this.schemess=false,
+        this.loanss=false,
+       
+        this.ss=false,
+        this.iri=true,
+
+        this.color="#000000";
+        this.c2="#0000ff";
+        this.c3="#000000";
+        this.c4="#000000";
+
+
+},
+schema(){
+        this.loanss=false,
+        this.iri=false,
+        this.ss=false,
+        this.schemess=true,
+
+    this.color="#000000";
+        this.c2="#000000";
+        this.c3="#0000ff";
+        this.c4="#000000";
+
+},
+patterns(){
+    this.schemess=false,
+        
+        this.iri=false,
+        this.ss=false,
+        this.loanss=true,
+
+    this.color="#000000";
+        this.c2="#000000";
+        this.c3="#000000";
+        this.c4="#0000ff";
+},
+      login(){
+        window.location.href = '/login';
+
+      },
+      signup(){
+        window.location.href = '/signup';
+
+      },
+      home(){
+        window.location.href = '/';
+
+      },
+    guide(){
+        console.log("He");
+        
+        window.location.href = '/guide';
+
+    },
+    schemes(){
+        console.log("He");
+        
+        window.location.href = '/schemes';
+
+    },
+    loan(){
+        console.log("He");
+        
+        window.location.href = '/loan';
+
+    },
+    retailers(){
+        console.log("He");
+        
+        window.location.href = '/retailers';
+
+    },
+
+  }
+})
+</script>
+<style>
+body{
+  background: #6190E8;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #A7BFE8, #6190E8);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #A7BFE8, #6190E8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.ig{
+  min-height:100%;
+    min-width:100%;
+    height:auto;
+    background: #E0EAFC;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    width:auto;
+    position: absolute;;
+    top:-100%; bottom:-100%;
+    left:-100%; right:-100%;
+    margin:auto;
+}
+  </style>

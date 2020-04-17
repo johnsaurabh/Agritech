@@ -1,0 +1,44 @@
+{% extends 'farmer/index.html' %}
+{% block content %}
+
+    <v-container  >
+        <div id="login" class="mx-auto pa-10 " style="width: 400px;background-color: #2d545e;margin-top: 10%;">
+
+       <p style="font-size: 26px;color: white;">Login</p>
+        <form method="POST">
+            {% csrf_token %}
+            <span style="color:white">username</span>
+            <v-text-field
+            solo
+            name='username'
+          ></v-text-field>
+         <span style="color:white">password</span>
+         <v-text-field
+         v-model="password"
+         :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+         :rules="[rules.required, rules.min]"
+         :type="show1 ? 'text' : 'password'"
+         name="password"
+         
+         @click:append="show1 = !show1" 
+            solo
+          ></v-text-field>
+            <v-btn type="submit">Submit</v-btn> 
+
+         </form>
+        </div>
+    </v-container>
+            
+         
+      </div>
+
+
+<style>
+  #login{
+    background: #000046;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  }
+</style>
+{% endblock %}

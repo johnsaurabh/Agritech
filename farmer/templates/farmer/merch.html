@@ -1,0 +1,136 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AgroTech</title>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <style>
+      .appbar{
+        background: #373B44;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+      }
+    </style>
+    <div  id="app">
+      <div class="ig"> </div>
+        <v-app>
+ 
+        
+        <nav>
+           
+        <v-app-bar class="appbar" app>
+            <v-app-bar-nav-icon style="color: bisque;" @click='drawer=!drawer'></v-app-bar-nav-icon>
+            <v-toolbar-title style="font-size: 20px;color:white;">AgroTech</v-toolbar-title>
+            {% if user is not None and user.email != NULL %}
+
+
+                <v-btn style="margin-left: 70%;" icon>
+                    <i style="color: bisque;" class="material-icons">
+                        account_circle
+                        </i>
+                    <v-btn style="color: bisque;" text >{{user.username}}</v-btn>
+                    <v-btn style="color: bisque;" text @click="logout">logout</v-btn>
+
+                  </v-btn>
+                  <!-- <v-btn  style="margin-left: 50%;" icon>
+                    <v-btn @click="logout">logout</v-btn>
+                  </v-btn> -->
+                  {% endif %}
+
+                  {% if user.email is NULL %}
+
+                <v-btn  style="margin-left: 70%;" icon>
+                    <v-btn @click="login">Login</v-btn>
+                  </v-btn>
+                  <v-btn  style="margin-left: 50px;" icon>
+                    <v-btn @click="signup" >SignUp</v-btn @click="signup">
+                  </v-btn>
+                  {% endif %}
+
+
+
+        </v-app-bar>
+        
+       
+
+   
+</nav>
+<div style="margin-top: 100px;margin-left: 10%;margin-right: 10%;" >
+
+{% for m in farmer %}
+<v-card class="mb-5">
+    <v-card-title>
+        {{m.name}}
+    </v-card-title>
+    <v-card-text style="font-size: 16px;">
+        Age : {{m.age}},<br>
+        Land : {{m.land}} acres<br>
+        Crop : {{m.crop}}<br>
+        Contact : {{m.phone}}<br>
+
+    </v-card-text>
+</v-card>
+{% endfor %}
+</div>
+</v-app>
+</div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+</body>
+</html>
+<script>
+  
+var app = new Vue({
+  delimiters: ['[[', ']]'],
+  el: '#app',
+  vuetify: new Vuetify(),
+  data: {
+    
+  
+
+  },
+  methods:{
+    logout(){
+        window.location.href = '/logout';
+
+
+      },
+  }
+})
+</script>
+<style>
+body{
+  background: #6190E8;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #A7BFE8, #6190E8);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #A7BFE8, #6190E8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.ig{
+  min-height:100%;
+    min-width:100%;
+    height:auto;
+    background: #E0EAFC;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    width:auto;
+    position: absolute;;
+    top:-100%; bottom:-100%;
+    left:-100%; right:-100%;
+    margin:auto;
+}
+  </style>

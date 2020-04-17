@@ -1,0 +1,67 @@
+{% extends 'farmer/index.html' %}
+{% block content %}
+<div >
+
+    <v-row >
+
+        <v-col cols=8>
+
+            {% for x in post %}
+    <v-card @click="showPost=!showPost"
+style="margin-top: 85px;margin-left: 50px;"
+max-width="1000"
+>
+<v-img
+  src="{{x.image}}"
+  height="200px"
+></v-img>
+
+<v-card-title id="title">
+   {{ x.title}}
+</v-card-title>
+<v-expand-transition>
+    <div v-show="showPost">
+      <v-divider></v-divider>
+
+      <v-card-text id="title">
+        {{x.text}}
+
+      </v-card-text>
+    </div>
+  </v-expand-transition>
+
+
+
+</v-card>
+{% endfor %}
+
+        </v-col>
+        <v-col  style="margin-top: 85px; margin-left: auto;margin-right: auto;"
+        cols=3>
+
+           
+
+            <p>Schemes</p>
+            {% for y in sch %}
+
+            <v-card class="mb-5">
+                <v-card-title style="font-size: 18px;">{{y.title}}</v-card-title>
+            </v-card>
+
+{% endfor %}
+            
+        </v-col>
+
+    </v-row>
+
+
+
+</div>
+<style>
+ #title{
+  background: #E0EAFC;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #CFDEF3, #E0EAFC);
+ }
+</style>
+{% endblock %}

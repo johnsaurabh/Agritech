@@ -1,0 +1,70 @@
+{% extends 'farmer/index.html' %}
+
+
+
+{% block content %}
+
+    <v-container >
+        <div  class="mx-auto pa-10 " id="signup">
+
+       <p style="font-size: 26px;color: white;">Signup</p>
+        <form method="POST">
+            {% csrf_token %}
+            <span style="color:white">username</span>
+            <v-text-field
+  
+            solo
+            name='username'
+          ></v-text-field>
+         <span style="color:white">password</span>
+          <v-text-field
+          
+          solo
+          name='password'
+        ></v-text-field>
+
+        <span style="color:white">email</span>
+        <v-text-field
+        
+        solo
+        name='email'
+      ></v-text-field>
+
+      <span style="color:white">Brand name</span>
+      <v-text-field
+      
+      solo
+      name='brand'
+    ></v-text-field>
+
+    <span style="color:white">AadharID</span>
+    <v-text-field
+    
+    solo
+    name='aid'
+  ></v-text-field>
+
+  <span style="color:white">Phone.No</span>
+  <v-text-field
+  
+  solo
+  name='phone'
+></v-text-field>
+            <v-btn type="submit">Submit</v-btn> 
+
+         </form>
+        </div>
+    </v-container>
+            
+         
+      </div>
+      <style>
+        #signup{
+          background: #000046;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      width: 400px;
+      margin-top: 10%;
+        }
+      </style>
+{% endblock %}

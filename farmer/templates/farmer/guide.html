@@ -1,0 +1,181 @@
+{% extends 'farmer/index.html' %}
+{% block content %}
+
+   <div style="margin:85px 0px 50px 20px">
+<div style="margin-left: 6%;">
+           <v-row>
+            <v-col align-self='start'  cols=2 >
+               <v-card class="pa-8">
+
+               
+                <a @click='soil' v-bind:style="{color:color}">Soils</a><br><br>
+                <a  @click='irri' v-bind:style="{color:c2}">Irrigation Techiniques</a><br><br>
+                <a  @click='patterns' v-bind:style="{color:c4}">Cropping Patterns</a><br>
+            </v-card>
+        </v-col>
+
+               <v-col cols=9>
+                <v-card v-if="ss"  outlined>
+                    <v-card-title>
+                        <strong>  SOILS</strong>  
+                    </v-card-title>
+                    <v-card-text style="font-size:16px; color:black">
+                        <strong>    TYPES OF SOILS USED FOR AGRICULTURE:-</strong>  <br>
+
+                        <strong>  BASED ON TEXTURE:-</strong>  
+<br>
+sandy soil   <br>
+clayey soil  <br>
+loamy soil<br>
+
+<strong>  SOILS BASED ON COLOR:-</strong><br>
+
+black soil<br>
+red soil<br>
+
+
+
+<strong>  TYPES OF SOILS PRESENT IN TELANGANA USED FOR AGRICULTURE:-</strong>  <br>
+
+
+Red soil-Red soil has high iron content and is fit for crops like red gram, Bengal gram, green gram, groundnut and castor seed. 
+                Rice, wheat, sugarcane, maize/corn, groundnut, ragi (finger millet) and potato, oil seeds, pulses, millets and fruits such as mango, orange,
+                citrus, and vegetables can be grown under ideal irrigation.<br>
+
+Black soil-Black soil is rich in calcium, potassium and magnesium but has poor nitrogen content.
+            Crops like cotton, tobacco, chilly, oil seeds, jowar, ragi, Rice and sugarcane, wheat, jowar, linseed, sunflower,
+            cereal crops, citrus fruits, vegetables, tobacco, groundnut, any oilseed crops and millets. and maize grow well in it.
+
+
+
+                      </v-card-text>
+                </v-card>
+
+                <v-card v-if="iri"  outlined>
+                    <v-card-title>
+                        <strong>  Irrigation</strong>  
+
+                    </v-card-title>
+                    <v-card-text style="font-size:16px; color:black">
+                        <strong>    TYPES OF IRRIGATION PRACTICES:-</strong>  <br>
+
+                        
+
+
+
+
+
+
+<strong>  SURFACE IRRIGATION:-</strong>  <br>
+
+
+Surface irrigation is where water is applied and distributed over the soil surface by gravity. It is by far the most common form of irrigation throughout the world and has been practiced in many areas virtually unchanged for thousands of years. 
+It is particularly suited to broad-acre row crops such as cotton, maize and sugar cane. It is also practiced in various horticultural industries such as citrus, stone fruit and tomatoes. <br>
+
+<strong>  DRIP IRRIGATION:-</strong>  <br>
+
+
+
+Drip irrigation is a type of micro-irrigation system that has the potential to save water and nutrients by allowing water to drip slowly to the roots of plants, either from above the soil surface or buried below the surface. The goal is to place water directly into the root zone and minimize evaporation. Drip irrigation systems distribute water through a network of valves, pipes, tubing, and emitters.
+Drip irrigation is used in farms, commercial greenhouses, and residential gardens. Drip irrigation is adopted extensively in areas of acute water scarcity and especially for crops and trees such as coconuts, containerized landscape trees, grapes, bananas, ber, eggplant, citrus, strawberries, sugarcane, cotton, maize, and tomatoes. <br>
+
+
+<strong>  SPRINKLER IRRIGATION:-</strong>  <br>
+Sprinkler irrigation is a method of applying irrigation water which is similar to natural rainfall. Water is distributed through a system of pipes usually by pumping. It is then sprayed into the air through sprinklers so that it breaks up into small water drops which fall to the ground. The pump supply system, sprinklers and operating conditions must be designed to enable a uniform application of water.
+Sprinkler irrigation is suited for most row, field and tree crops and water can be sprayed over or under the crop canopy.Sprinklers are best suited to sandy soils with high infiltration rates although they are adaptable to most soils.<br>
+
+
+<strong>  CENTER-PIVOT IRRIGATION:-</strong>  <br>
+Center-pivot irrigation, also called water-wheel and circle irrigation, is a method of crop irrigation in which equipment rotates around a pivot and crops are watered with sprinklers. A circular area centered on the pivot is irrigated, often creating a circular pattern in crops when viewed from above (sometimes referred to as crop circles).
+Almost all crops including sugar cane, orchard and vines as well as more traditional field crops such as maize, potatoes, small grains, alfalfa, and vegetable crops can and have been successfully irrigated with center pivot water application systems under a wide range of conditions.<br>
+
+
+
+<strong>  SUBIRRIGATION:-</strong>  <br>
+Subirrigation also known as seepage irrigation, is a method of irrigation where water is delivered to the plant root zone. The excess may be collected for reuse.
+Subirrigation is used in growing field crops such as tomatoes, peppers, and sugar cane in areas with high water tables such as Florida and in commercial greenhouse operations.<br>
+
+
+
+
+
+
+
+`
+
+
+                      </v-card-text>
+                </v-card>
+
+                
+
+                <v-card v-if="loanss"  outlined>
+                    <v-card-title>
+                        <strong> CROPPING PATTERNS</strong>  
+                    </v-card-title>
+                    <v-card-text style="font-size:16px; color:black">
+                        <strong>    DIFFERENT CROPPING PATTERNS:-</strong>  <br>
+                        Cropping pattern refers to the proportion of land under cultivation of different crops at different points 
+                        of time. This indicates the time and arrangement of crops in a particular land area. Any change in the cropping
+                        pattern would cause:
+                        
+                        ->change in the proportion of land under different crops
+                        ->change in space sequence and time of crops<br>
+                        *In India, the cropping pattern is determined by rainfall, temperature, climate, technology and soil type.
+                        In order to obtain maximum yields, different patterns of cropping are practised. <br>
+                        
+
+
+
+<strong>  The major cropping patterns include the following:-</strong>  <br>
+
+
+<strong>  Factors Affecting Cropping Patterns:-</strong>  <br>
+The cropping patterns determine the level of agricultural production. This reflects the agricultural economy of any region.
+
+The cropping patterns are affected by changes in agrarian policy, availability of agricultural inputs, improvement in technology.
+
+Thus, the cropping patterns are beneficial in improving the fertility of the soil, thereby, increasing the yield of the crops. It ensures crop protection and availability of nutrients to the crops.
+<br>
+
+<strong>  Monocropping:-</strong>  <br>
+Many farmers plant only one crop in the same place year after year. This is what is known as monoculture crops. 
+Supporters claim it is a more profitable way to farm than switching crops around each year. When a farmer grows 
+only one type of crop he can specialize in that crop and purchase only.<br>
+
+
+<strong>  Mixed Cropping:-</strong>  <br>
+When two or more crops are grown on the same land simultaneously, it is known as mixed cropping. For eg., growing wheat and gram on the same land at the same time is mixed cropping. This practice minimizes the risk of failure of one of the crops and insures against crop failure due to abnormal weather conditions.
+The crops to be grown together should have a different maturation time and different water requirements. One tall and one dwarf crop should be grown together. The nutrients required by one crop should be less than those required by the other. One crop should have deep roots, other’s should be shallow. All these criteria lead to a successful mixed cropping pattern.<br>
+
+
+<strong>  Intercropping:-</strong>  <br>
+Intercropping is the practice of growing more than one crop on the same field at the same time in a definite row pattern. After one row of the main crop, three rows of intercrops can be grown. This increases productivity per unit area.
+<br>
+
+
+<strong>  Crop Rotation:-</strong>  <br>
+In this pattern, different crops are grown on the same land in preplanned succession. The crops are classified as one-year rotation, two-year rotation, and three-year rotation, depending upon their duration.
+
+Legumes are included in the crop rotation programme to increase soil fertility. The crops which require high fertility level (wheat) can be grown after the legumes. The crops which require low inputs can be grown after the crops that require high inputs.
+<br>
+<strong>How are the crops selected for Rotation?</strong><br>
+While selecting the crops for rotation, the following criteria should be adopted:
+Enough moisture should be available.
+Availability of fertilizers, man-power, and machine-power.
+Marketing and processing facilities.
+Availability of nutrients in the soil.
+The crop duration- short or long.<br>
+
+
+                      </v-card-text>
+                </v-card>
+               </v-col>
+           </v-row>
+        </div>
+
+
+
+</div>
+
+{% endblock %}

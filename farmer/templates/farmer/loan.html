@@ -1,0 +1,28 @@
+{% extends 'farmer/index.html' %}
+{% block content %}
+
+<div id='loan' class="mx-auto pa-10" style="margin-top: 180px;">
+    <v-card width=500px>
+        <v-card-title>
+            Apply for loan
+        </v-card-title>
+        <v-card-text style="font-size: 20px;">
+           In need of money but don't know where to go? 
+           Loans are now made easy.Apply for a loan and get the best INTEREST RATES.
+        </v-card-text>
+        <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn
+              color="orange"
+              text
+              @click="applyLoan"
+            >
+              Request
+            </v-btn>
+      
+            
+          </v-card-actions>
+    </v-card>
+</div>
+
+{% endblock %}

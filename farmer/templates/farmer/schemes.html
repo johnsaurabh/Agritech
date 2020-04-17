@@ -1,0 +1,18 @@
+{% extends 'farmer/index.html' %}
+{% block content %}
+    <div style="margin-top: 100px;margin-left: 10%;margin-right: 10%;" >
+
+
+    {% for m in sch %}
+        <v-card class="mb-5">
+            <v-card-title>
+                {{m.title}}
+            </v-card-title>
+            <v-card-text>
+               {{m.text}}
+            </v-card-text>
+        </v-card>
+   {% endfor %}
+</div>
+
+   {% endblock %}
